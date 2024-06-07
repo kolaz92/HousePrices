@@ -2,9 +2,9 @@
 import pickle
 import pandas as pd
 import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-from tqdm import tqdm
+#import matplotlib.pyplot as plt
+#import seaborn as sns
+#from tqdm import tqdm
 import streamlit as st
 
 # Важная настройка для корректной настройки pipeline!

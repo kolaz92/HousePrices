@@ -49,7 +49,7 @@ ml_pipeline_CAT = pickle.load(open('pipl_CAT.pkl', 'rb'))
 
 st.header('Предсказание цены на недвижимость')
 st.sidebar.header('Загрузите пользовательский файл с параметрами')
-uploaded_file = st.sidebar.file_uploader("Upload your dataset",['cvs'])
+uploaded_file = st.sidebar.file_uploader("Upload your dataset",['csv'])
 
 if uploaded_file is not None:
     file = uploaded_file

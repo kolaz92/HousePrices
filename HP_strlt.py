@@ -44,6 +44,7 @@ import optuna
 default_dataset = 'Data/test.csv'
 ml_pipeline_LG = pickle.load(open('pipl.pkl', 'rb'))
 ml_pipeline_KNN = pickle.load(open('pipl_KNN.pkl', 'rb'))
+ml_pipeline_CAT = pickle.load(open('pipl_CAT.pkl', 'rb'))
 
 
 st.header('Предсказание цены на недвижимость')
@@ -69,10 +70,17 @@ if st.button('Получить предсказания по тестовым д
     y_pred = pd.Series(ml_pipeline_LG.predict(df))
     st.subheader('Метод линейной регрессии:')
     st.dataframe(y_pred.to_frame().map(lambda x: round(np.exp(x),2)).rename(columns={0:'Sales_pred'}).T)
+    st.write(f'Тестовые метрики: train {0.009734}, valid {0.010533}')
 
     y_pred = pd.Series(ml_pipeline_KNN.predict(df))
     st.subheader('Метод ближайших соседей:')
     st.dataframe(y_pred.to_frame().map(lambda x: round(np.exp(x),2)).rename(columns={0:'Sales_pred'}).T)
+    st.write(f'Тестовые метрики: train {0.011276}, valid {0.014095}')
+
+    y_pred = pd.Series(ml_pipeline_CAT.predict(df))
+    st.subheader('Метод CatBoostRegression:')
+    st.dataframe(y_pred.to_frame().map(lambda x: round(np.exp(x),2)).rename(columns={0:'Sales_pred'}).T)
+    st.write(f'Тестовые метрики: train {0.009488}, valid {0.012424}')
     # st.subheader('Полученная метрика:')
     # st.write(f'{y_pred}')
 

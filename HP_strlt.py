@@ -68,11 +68,11 @@ st.subheader('На основании train датасета было обуче
 if st.button('Получить предсказания по тестовым данным'):
     y_pred = pd.Series(ml_pipeline_LG.predict(df))
     st.subheader('Метод линейной регрессии:')
-    st.dataframe(y_pred.to_frame().rename(columns={0:'Sales_pred'}).T)
+    st.dataframe(y_pred.to_frame().map(lambda x: round(np.exp(x),2)).rename(columns={0:'Sales_pred'}).T)
 
     y_pred = pd.Series(ml_pipeline_KNN.predict(df))
     st.subheader('Метод ближайших соседей:')
-    st.dataframe(y_pred.to_frame().rename(columns={0:'Sales_pred'}).T)
+    st.dataframe(y_pred.to_frame().map(lambda x: round(np.exp(x),2)).rename(columns={0:'Sales_pred'}).T)
     # st.subheader('Полученная метрика:')
     # st.write(f'{y_pred}')
 

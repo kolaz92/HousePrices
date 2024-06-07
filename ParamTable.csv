@@ -44,7 +44,7 @@ GarageCond,81,6,object,False,constant,target,False
 PavedDrive,0,3,object,False,,target,False
 LandSlope,0,3,object,False,,target,False
 LotConfig,0,5,object,False,,target,False
-Utilities,0,2,object,False,,ordinal,False
+Utilities,0,2,object,True,,ordinal,False
 LandContour,0,4,object,False,,target,False
 LotShape,0,4,object,False,,target,False
 Alley,1369,3,object,False,constant,target,False
